@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pick Study</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="pick.js"></script>
+  </head>
+  <body>
+    <div id="status" style="font-size: 2em">Picks Counted: 0</div>
+    <div id="timer">
+      <span>Time Elapsed (mm:ss): </span>
+      <span id="time_elapsed_calc">00:00</span>
+    </div>
+    <button
+      id="walk_button"
+      class="button"
+      onclick="add_element_to_array(this.id);"
+    >
+      Walk
+    </button>
+    <br />
+    <button
+      id="locate_button"
+      class="button"
+      onclick="add_element_to_array(this.id);"
+    >
+      Locate
+    </button>
+    <br />
+    <button
+      id="pick_button"
+      class="button"
+      onclick="add_element_to_array(this.id);"
+    >
+      Pick
+    </button>
+    <br />
+    <button
+      id="place_button"
+      class="button"
+      onclick="add_element_to_array(this.id);"
+    >
+      Place
+    </button>
+    <br />
+    <button
+      id="complete_button"
+      class="button"
+      onclick="add_element_to_array(this.id);"
+    >
+      Complete
+    </button>
+    <br />
+    <button id="downloadCSV" class="button" onclick="arrayToCSV();">
+      Download CSV
+    </button>
+    <button id="delete_button" class="button" onclick="delete_last_record();">
+      Delete
+    </button>
+    <div id="Results" style="font-size: 2em"></div>
+  </body>
+</html>

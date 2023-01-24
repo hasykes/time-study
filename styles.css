@@ -1,0 +1,64 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+td {
+  width: 20%;
+  border: 1px solid black;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 5em;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  height: 18%;
+}
+
+#induct_main_button {
+  background-color: #4caf50;
+}
+#pick_main_button {
+  background-color: #00bfff;
+}
+#putaway_main_button {
+  background-color: #ff7f50;
+}
+#tote_button {
+  background-color: #f55151;
+}
+#walk_button {
+  background-color: #4caf50;
+}
+#locate_button {
+  background-color: #00bfff;
+}
+#pick_button {
+  background-color: #ff7f50;
+}
+#place_button {
+  background-color: #66cdaa;
+}
+#complete_button {
+  background-color: #b3f714;
+}
+#downloadCSV {
+  background-color: #a9a9a9;
+  height: 10%;
+  width: 40%;
+  display: in-line;
+  font-size: 2em;
+}
+#delete_button {
+  background-color: #ff0000;
+  width: 30%;
+  height: 10%;
+  font-size: 2em;
+}
