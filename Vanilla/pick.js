@@ -1,3 +1,5 @@
+import stopwatch from "./Vanilla/timer/stopwatch";
+console.log(stopwatch);
 //Used to store all data
 var fullTimeStudyArray = Array([
   "Event",
@@ -107,4 +109,11 @@ function arrayToCSV() {
 
   document.body.appendChild(a);
   a.click();
+}
+
+function buttonClick(element) {
+  //if timerStarted = 1{
+  // startStopwatch();
+  //}
+  //add_element_to_array(element);
 }
