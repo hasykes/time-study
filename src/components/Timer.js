@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 //import styles from "@/styles/Home.module.css";
 
 const Timer = (props) => {
@@ -27,7 +27,7 @@ const Timer = (props) => {
   return (
     <>
       <div id="status">
-        <span>Picks Counted: </span>
+        <span>Tasks Counted: </span>
         <span>{props.eventCount}</span>
       </div>
       <div id="timer">

@@ -15,19 +15,21 @@ const Results = (props) => {
 
   return (
     <>
-      <button id="undo_button" className="button" onClick={undoEvent}>
-        Undo Event
-      </button>
-      <button id="restart_button" className="button" onClick={restartStudy}>
-        Restart
-      </button>
+      <div id="results_button_container">
+        <button id="undo_button" className="button " onClick={undoEvent}>
+          Undo Event
+        </button>
+        <button id="restart_button" className="button" onClick={restartStudy}>
+          Restart
+        </button>
+      </div>
       <table id="results_table">
         <thead>
           <tr>
             <th>Task</th>
             <th>Time Stamp</th>
             <th>Seconds to Complete</th>
-            <th>Pick ID</th>
+            <th>ID</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +39,7 @@ const Results = (props) => {
                 <td>{event.name}</td>
                 <td>{event.timestamp}</td>
                 <td>{event.secondsToComplete}</td>
-                <td>{event.pickId}</td>
+                <td>{event.id}</td>
               </tr>
             );
           })}

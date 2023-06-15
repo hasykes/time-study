@@ -21,7 +21,7 @@ const Tasks = (props) => {
           name: taskName,
           timestamp: curDateTime,
           secondsToComplete,
-          pickId: props.eventCount + 1,
+          id: props.eventCount + 1,
           momentObj,
         },
       ];
@@ -68,14 +68,18 @@ const Tasks = (props) => {
           <button
             key={"id_" + i}
             id={task + "_button"}
-            className="button"
+            className="button task"
             onClick={() => handleTaskButtonClick(i, task)}
           >
             {task}
           </button>
         );
       })}
-      <button id="end_button" onClick={handleEndStudyButtonClick}>
+      <button
+        id="end_button"
+        className="button"
+        onClick={handleEndStudyButtonClick}
+      >
         End Study
       </button>
     </div>
