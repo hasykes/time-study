@@ -35,13 +35,18 @@ const Timestudy = (props) => {
         <Tasks
           taskList={props.taskList}
           setEventCount={setEventCount}
-          eventCount={props.eventCount}
+          eventCount={eventCount}
           setTimerShouldRun={setTimerShouldRun}
           timerShouldRun={timerShouldRun}
           setEventList={setEventList}
           eventList={eventList}
         />
-        <Results eventList={eventList} />
+        <Results
+          eventList={eventList}
+          setEventList={setEventList}
+          setEventCount={setEventCount}
+          eventCount={eventCount}
+        />
       </main>
     </>
   );

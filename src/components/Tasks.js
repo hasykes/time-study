@@ -21,25 +21,43 @@ const Tasks = (props) => {
           name: taskName,
           timestamp: curDateTime,
           secondsToComplete,
-          pickId: props.eventCount,
+          pickId: props.eventCount + 1,
           momentObj,
         },
       ];
     });
   };
 
-  const handleButtonClick = (buttonIndex, taskName) => {
-    //all buttons should fire a logged event
+  const convertToCSVandEmail = (eventList) => {
+    const relevantData = eventList.map(({ momentObj, ...rel }) => rel);
+
+    const headers = Object.keys(relevantData[0]);
+    const csvContent = `${headers.join(",")}\n${relevantData
+      .map((row) => headers.map((header) => row[header]).join(","))
+      .join("\n")}`;
+
+    const encodedUri = encodeURI(csvContent);
+
+    window.open(
+      `mailto:?subject=Time Study CSV Data ${moment().format(
+        "YYYY-MM-DD"
+      )}&body=${encodedUri}`
+    );
+  };
+
+  const handleEndStudyButtonClick = () => {
+    props.setTimerShouldRun(false);
+    convertToCSVandEmail(props.eventList);
+  };
+
+  const handleTaskButtonClick = (buttonIndex, taskName) => {
     logEvent(taskName);
-    if (buttonIndex > props.taskList.length) {
-      props.setTimerShouldRun(false); //last button is end study
-      return;
-    }
     if (buttonIndex === props.taskList.length - 1) {
-      props.setEventCount((prevEventCount) => prevEventCount + 1); //last task button should log a completed task
+      props.setEventCount((prevEventCount) => prevEventCount + 1);
     }
-    if (props.timerShouldRun) {
-      props.setTimerShouldRun(false);
+
+    if (!props.timerShouldRun) {
+      props.setTimerShouldRun(true);
     }
   };
 
@@ -51,16 +69,13 @@ const Tasks = (props) => {
             key={"id_" + i}
             id={task + "_button"}
             className="button"
-            onClick={() => handleButtonClick(i, task)}
+            onClick={() => handleTaskButtonClick(i, task)}
           >
             {task}
           </button>
         );
       })}
-      <button
-        id="end_button"
-        onClick={() => handleButtonClick(999, "End Study")}
-      >
+      <button id="end_button" onClick={handleEndStudyButtonClick}>
         End Study
       </button>
     </div>

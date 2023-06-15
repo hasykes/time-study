@@ -2,16 +2,24 @@ const Results = (props) => {
   if (props.eventList.length === 0) {
     return;
   }
+
+  const undoEvent = () => {
+    const newEventList = props.eventList;
+    newEventList.pop();
+    props.setEventList([...newEventList]);
+  };
+
+  const restartStudy = () => {
+    window.location.reload(); //just reload the page
+  };
+
   return (
     <>
-      <button id="downloadCSV" className="button">
-        Download CSV
+      <button id="undo_button" className="button" onClick={undoEvent}>
+        Undo Event
       </button>
-      <button id="delete_button" className="button">
-        Delete
-      </button>
-      <button id="clearAll_button" className="button">
-        Clear All
+      <button id="restart_button" className="button" onClick={restartStudy}>
+        Restart
       </button>
       <table id="results_table">
         <thead>
