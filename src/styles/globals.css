@@ -14,20 +14,25 @@ td {
   padding: 0.25em 0.5em;
 }
 
-a {
-  size: 1.5rem;
-}
 #induct_main_button {
   background-color: #4caf50;
+  margin: 5px 0;
+  padding: 15px 0;
 }
 #pick_main_button {
   background-color: #00bfff;
+  margin: 5px 0;
+  padding: 15px 0;
 }
 #putaway_main_button {
   background-color: #ff7f50;
+  margin: 5px 0;
+  padding: 15px 0;
 }
 #custom_main_button {
   background-color: #999;
+  margin: 5px 0;
+  padding: 15px 0;
 }
 
 .button {
