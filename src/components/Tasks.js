@@ -47,7 +47,9 @@ const Tasks = (props) => {
 
   const handleEndStudyButtonClick = () => {
     props.setTimerShouldRun(false);
-    convertToCSVandEmail(props.eventList);
+    if (props.eventList.length > 0) {
+      convertToCSVandEmail(props.eventList);
+    }
   };
 
   const handleTaskButtonClick = (buttonIndex, taskName) => {
@@ -68,7 +70,7 @@ const Tasks = (props) => {
           <button
             key={"id_" + i}
             id={task + "_button"}
-            className="button task"
+            className={`button task ${i % 2 === 0 ? "even" : "odd"}`}
             onClick={() => handleTaskButtonClick(i, task)}
           >
             {task}

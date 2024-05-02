@@ -41,25 +41,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
       <main>
-        {Object.keys(workflows).map((workflow, i) => {
-          return (
-            <Link
-              key={`workflow-${i}`}
-              id={`${workflow}_main_button`}
-              className="button"
-              href={encodeURI(
-                `/study?workflow=${workflow}&tasks=${JSON.stringify(
-                  workflows[workflow]
-                )}`
-              )}
-            >
-              {workflow}
-            </Link>
-          );
-        })}
-        <Link id="custom_main_button" className="button" href="/custom">
-          Custom
-        </Link>
+        <div id="workflowsContainer">
+          {Object.keys(workflows).map((workflow, i) => {
+            return (
+              <Link
+                key={`workflow-${i}`}
+                id={`workflow_button_${i}`}
+                className="button workflow"
+                href={encodeURI(
+                  `/study?workflow=${workflow}&tasks=${JSON.stringify(
+                    workflows[workflow]
+                  )}`
+                )}
+              >
+                {workflow}
+              </Link>
+            );
+          })}
+          <Link id="custom_main_button" className="button" href="/custom">
+            Custom
+          </Link>
+        </div>
       </main>
     </>
   );

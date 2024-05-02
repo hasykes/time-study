@@ -11,6 +11,7 @@ const Timestudy = (props) => {
   const [timer, setTimer] = useState(0);
   const [eventCount, setEventCount] = useState(0);
   const [eventList, setEventList] = useState([]);
+  console.log(props.taskList);
 
   //useEffect(() => {}, [eventList]);
 
