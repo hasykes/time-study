@@ -33,7 +33,7 @@ const Timestudy = (props) => {
           setEventCount={setEventCount}
         />
         <Tasks
-          taskList={props.taskList}
+          taskList={JSON.parse(props.taskList)}
           setEventCount={setEventCount}
           eventCount={eventCount}
           setTimerShouldRun={setTimerShouldRun}

@@ -1,5 +1,6 @@
 import Timestudy from "@/components/Timestudy";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Custom() {
   const [taskListString, setTaskListString] = useState(""); //default to empty task list
@@ -7,6 +8,7 @@ export default function Custom() {
   const [workflowName, setWorkflowName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [workflows, setWorkflows] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
     if (Object.keys(workflows).length === 0) {
@@ -64,6 +66,13 @@ export default function Custom() {
     }
     setWorkflowsToStorage(taskArray);
     setTaskList(taskArray);
+    router.push(
+      encodeURI(
+        `/study?workflow=${workflowName}&tasks=${JSON.stringify(
+          workflows[workflowName]
+        )}`
+      )
+    );
   };
 
   if (taskList.length === 0) {
@@ -95,9 +104,4 @@ export default function Custom() {
       </>
     );
   }
-  return (
-    <>
-      <Timestudy pageName="Custom" taskList={taskList} />
-    </>
-  );
 }
