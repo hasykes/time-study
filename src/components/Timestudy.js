@@ -11,8 +11,10 @@ const Timestudy = (props) => {
   const [timer, setTimer] = useState(0);
   const [eventCount, setEventCount] = useState(0);
   const [eventList, setEventList] = useState([]);
-  console.log(props.taskList);
-
+  var tasks = [];
+  if (props.taskList) {
+    tasks = JSON.parse(props.taskList);
+  }
   //useEffect(() => {}, [eventList]);
 
   return (
@@ -34,7 +36,7 @@ const Timestudy = (props) => {
           setEventCount={setEventCount}
         />
         <Tasks
-          taskList={JSON.parse(props.taskList)}
+          taskList={tasks}
           setEventCount={setEventCount}
           eventCount={eventCount}
           setTimerShouldRun={setTimerShouldRun}
