@@ -17,17 +17,14 @@ export default function Home() {
   });
 
   useEffect(() => {
-    if (Object.keys(workflows).length === 0) {
-      getWorkflowsFromStorage();
-    }
-  });
+    getWorkflowsFromStorage();
+  }, []);
 
   const getWorkflowsFromStorage = () => {
-    if (localStorage.getItem("workflows")) {
-      setWorkflows([
-        ...workflows,
-        JSON.parse(localStorage.getItem("workflows")),
-      ]);
+    const workflowsFromStorage = localStorage.getItem("workflows");
+    if (workflowsFromStorage) {
+      const newFlows = JSON.parse(workflowsFromStorage);
+      setWorkflows({ ...workflows, ...newFlows });
     }
   };
 
